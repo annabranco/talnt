@@ -6,24 +6,19 @@ interface StyledWrapperElementProps
 }
 
 export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
-  background: ${({ color }) => color || 'none'};
-  border: 1px solid black;
-  font-size: 1 rem;
-`;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
-
-export const SAppContainer = styled(StyledWrapperElement)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-SAppContainer.displayName = 'SAppContainer';
-
-export const SMainArea = styled(StyledWrapperElement)`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  background: ${({ color }) => color || 'none'};
+  border: 1px solid black;
+  font-size: 1 rem;
+  color: red;
 `;
-SMainArea.displayName = 'SMainArea';
+StyledWrapperElement.displayName = 'StyledWrapperElement';
+
+export const StyledElement = styled.p`
+  font-size: 1 rem;
+  color: black;
+`;
+StyledElement.displayName = 'StyledElement';

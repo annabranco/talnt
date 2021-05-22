@@ -17,5 +17,6 @@
 		"strict": true,
 		"target": "es5"
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"typeRoots": ["node_modules/@types", "types/custom/*"]
 }

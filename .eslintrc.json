@@ -8,7 +8,9 @@
 	"extends": [
 		"eslint-config-airbnb",
 		"prettier",
+		"prettier/react",
 		"eslint-config-prettier",
+		"eslint-config-prettier/react",
 		"plugin:react/recommended",
 		"plugin:import/errors",
 		"plugin:import/recommended",
