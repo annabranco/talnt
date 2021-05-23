@@ -1,17 +1,47 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
+import { getAllDataFromServer, searchData } from '../../../api';
 import Header from '../../sections/Header';
 import Main from '../../sections/Main';
 import Search from '../../sections/Search';
 import { SAppContainer, SMainArea } from './styles';
+import { IAppState, IGenericData } from '../../../types/interfaces';
 
-const App = (): ReactElement => (
-  <SAppContainer color="gray">
-    <Header />
-    <SMainArea color="darkgray">
-      <Main />
-      <Search />
-    </SMainArea>
-  </SAppContainer>
-);
+export const initialState = {
+  companies: [],
+  moves: [],
+  regions: [],
+  tags: [],
+  taxonomies: []
+};
+
+const App = (): ReactElement => {
+  const [serverData, updateServerData] = useState(initialState as IAppState);
+  const [searchResults, updateSearchResults] = useState(
+    [] as IGenericData[] | never[]
+  );
+
+  const onSearch = async (query: string) => {
+    const search = (await searchData(query)) as IGenericData[];
+    if (search) {
+      updateSearchResults(search);
+    }
+  };
+
+  useEffect(() => {
+    getAllDataFromServer().then((data: IAppState) => {
+      updateServerData(data);
+    });
+  }, []);
+
+  return (
+    <SAppContainer color="gray">
+      <Header state={serverData} />
+      <SMainArea color="darkgray" onClick={getAllDataFromServer}>
+        <Main searchResults={searchResults} />
+        <Search onSearch={onSearch} />
+      </SMainArea>
+    </SAppContainer>
+  );
+};
 
 export default App;

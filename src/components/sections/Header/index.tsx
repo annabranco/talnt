@@ -1,16 +1,19 @@
 import { ReactElement } from 'react';
-import { string } from 'prop-types';
 import Dropdown from '../../elements/Dropdown';
-import { StyledElement, StyledWrapperElement } from './styles';
+import { StyledLogo, StyledWrapperElement } from './styles';
+import { IAppState } from '../../../types/interfaces';
+import { PAppState } from '../../../types/propTypes';
 
-interface Props {
-  text: string;
+export interface IHeaderProps {
+  state: IAppState;
 }
 
-const Header = ({ text }: Props): ReactElement => {
+const Header = ({
+  state: { companies, moves, regions, tags, taxonomies }
+}: IHeaderProps): ReactElement => {
   return (
     <StyledWrapperElement color="green">
-      <StyledElement> Header working! </StyledElement>
+      <StyledLogo data-test-id="logo">TALNT</StyledLogo>
       <Dropdown />
       <Dropdown />
       <Dropdown />
@@ -19,11 +22,7 @@ const Header = ({ text }: Props): ReactElement => {
 };
 
 Header.propTypes = {
-  text: string
-};
-
-Header.defaultProps = {
-  text: undefined
+  state: PAppState.isRequired
 };
 
 export default Header;

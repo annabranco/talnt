@@ -1,12 +1,12 @@
 import { ReactElement } from 'react';
-import { string } from 'prop-types';
+import { func } from 'prop-types';
 import { StyledElement, StyledWrapperElement } from './styles';
 
-interface Props {
-  text: string;
+export interface ISearchProps {
+  onSearch: (query: string) => void;
 }
 
-const Search = ({ text }: Props): ReactElement => {
+const Search = ({ onSearch }: ISearchProps): ReactElement => {
   return (
     <StyledWrapperElement color="lightblue">
       <StyledElement> Search working! </StyledElement>
@@ -15,11 +15,7 @@ const Search = ({ text }: Props): ReactElement => {
 };
 
 Search.propTypes = {
-  text: string
-};
-
-Search.defaultProps = {
-  text: undefined
+  onSearch: func.isRequired
 };
 
 export default Search;

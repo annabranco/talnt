@@ -17,8 +17,8 @@ export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
 `;
 StyledWrapperElement.displayName = 'StyledWrapperElement';
 
-export const StyledElement = styled.p`
-  font-size: 1 rem;
+export const StyledLogo = styled.p`
+  font-size: 4 rem;
   color: black;
 `;
-StyledElement.displayName = 'StyledElement';
+StyledLogo.displayName = 'StyledLogo';

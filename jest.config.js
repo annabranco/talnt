@@ -14,5 +14,6 @@ module.exports = {
   transform: {
     '^.+\\.(j|t)sx?$': 'ts-jest'
   },
-  verbose: false
+  verbose: false,
+  automock: false
 };
