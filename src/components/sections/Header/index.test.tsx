@@ -9,7 +9,7 @@ const mockState = {
   regions: MockedRegionsData.success
 };
 
-describe.only('< Header >', () => {
+describe('< Header >', () => {
   let wrapper: ReactWrapper;
 
   beforeAll(() => {

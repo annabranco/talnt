@@ -19,9 +19,7 @@ export const PRegions = shape({
 export const PAppState = shape({
   companies: arrayOf(PGenericData).isRequired,
   moves: arrayOf(PGenericData).isRequired,
-  regions: arrayOf(PRegions).isRequired,
-  tags: arrayOf(PGenericData).isRequired,
-  taxonomies: arrayOf(PGenericData).isRequired
+  regions: arrayOf(PRegions).isRequired
 });
 
 export const PApiData = oneOfType([arrayOf(PGenericData), arrayOf(PRegions)]);

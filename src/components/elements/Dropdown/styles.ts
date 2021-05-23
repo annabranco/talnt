@@ -13,8 +13,14 @@ export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
 `;
 StyledWrapperElement.displayName = 'StyledWrapperElement';
 
-export const StyledElement = styled.p`
+export const StyledDropdown = styled.select`
   font-size: 1 rem;
   color: black;
 `;
-StyledElement.displayName = 'StyledElement';
+StyledDropdown.displayName = 'StyledDropdown';
+
+export const StyledOption = styled.option`
+  font-size: 1 rem;
+  color: black;
+`;
+StyledOption.displayName = 'StyledOption';
