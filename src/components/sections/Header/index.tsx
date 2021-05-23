@@ -9,14 +9,14 @@ export interface IHeaderProps {
 }
 
 const Header = ({
-  state: { companies, moves, regions, tags, taxonomies }
+  state: { companies, moves, regions }
 }: IHeaderProps): ReactElement => {
   return (
     <StyledWrapperElement color="green">
       <StyledLogo data-test-id="logo">TALNT</StyledLogo>
-      <Dropdown />
-      <Dropdown />
-      <Dropdown />
+      <Dropdown data={regions} />
+      <Dropdown data={companies} />
+      <Dropdown data={moves} />
     </StyledWrapperElement>
   );
 };

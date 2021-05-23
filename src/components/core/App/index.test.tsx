@@ -1,6 +1,6 @@
+import { expect } from '@jest/globals';
 import { mount, ReactWrapper } from 'enzyme';
 import axios from 'axios';
-import { expect } from '@jest/globals';
 import App, { initialState } from '.';
 import {
   REGIONS_ENDPOINT,
@@ -55,12 +55,10 @@ describe('< App >', () => {
     wrapper.find('SMainArea').simulate('click');
     // // This forced click is being used because useEffect fetch is not being triggered on testing
 
-    expect(axiosSpy).toHaveBeenCalledTimes(5);
+    expect(axiosSpy).toHaveBeenCalledTimes(3);
     expect(axiosSpy).toHaveBeenCalledWith(REGIONS_ENDPOINT);
     expect(axiosSpy).toHaveBeenCalledWith(COMPANIES_ENDPOINT);
-    expect(axiosSpy).toHaveBeenCalledWith(TAGS_ENDPOINT);
     expect(axiosSpy).toHaveBeenCalledWith(MOVES_ENDPOINT);
-    expect(axiosSpy).toHaveBeenCalledWith(TAXONOMIES_ENDPOINT);
     axiosSpy.mockRestore();
   });
 
@@ -70,7 +68,7 @@ describe('< App >', () => {
     axiosSpy.mockReturnValue(response);
 
     wrapper.find('SMainArea').simulate('click');
-    expect(axiosSpy).toHaveBeenCalledTimes(5);
+    expect(axiosSpy).toHaveBeenCalledTimes(3);
     expect(axiosSpy).not.toThrow();
     axiosSpy.mockRestore();
   });

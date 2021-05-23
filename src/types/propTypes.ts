@@ -24,9 +24,11 @@ export const PAppState = shape({
   taxonomies: arrayOf(PGenericData).isRequired
 });
 
+export const PApiData = oneOfType([arrayOf(PGenericData), arrayOf(PRegions)]);
+
 export const PApiResponse = shape({
   status: shape({
     code: number.isRequired
   }),
-  success: oneOfType([arrayOf(PGenericData), arrayOf(PRegions)])
+  success: PApiData
 });

@@ -1,12 +1,14 @@
+import { oneOfType } from 'prop-types';
 import { ReactElement } from 'react';
-import { string } from 'prop-types';
+import { IApiData } from '../../../types/interfaces';
+import { PApiData, PGenericData } from '../../../types/propTypes';
 import { StyledElement, StyledWrapperElement } from './styles';
 
 interface Props {
-  size: string;
+  data: IApiData;
 }
 
-const Dropdown = ({ size }: Props): ReactElement => {
+const Dropdown = ({ data }: Props): ReactElement => {
   return (
     <StyledWrapperElement color="yellow">
       <StyledElement> Dropdown working! </StyledElement>
@@ -15,11 +17,7 @@ const Dropdown = ({ size }: Props): ReactElement => {
 };
 
 Dropdown.propTypes = {
-  size: string
-};
-
-Dropdown.defaultProps = {
-  size: undefined
+  data: PApiData.isRequired
 };
 
 export default Dropdown;

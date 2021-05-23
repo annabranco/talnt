@@ -9,9 +9,7 @@ import { IAppState, IGenericData } from '../../../types/interfaces';
 export const initialState = {
   companies: [],
   moves: [],
-  regions: [],
-  tags: [],
-  taxonomies: []
+  regions: []
 };
 
 const App = (): ReactElement => {
