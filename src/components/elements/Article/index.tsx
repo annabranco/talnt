@@ -1,12 +1,14 @@
 import { ReactElement } from 'react';
 import { string } from 'prop-types';
 import { StyledElement, StyledWrapperElement } from './styles';
+import { IGenericData } from '../../../types/interfaces';
+import { PGenericData } from '../../../types/propTypes';
 
-interface Props {
-  text: string;
+export interface IArticleProps {
+  data: IGenericData;
 }
 
-const Article = ({ text }: Props): ReactElement => {
+const Article = ({ data }: IArticleProps): ReactElement => {
   return (
     <StyledWrapperElement color="pink">
       <StyledElement> Article working! </StyledElement>
@@ -15,11 +17,7 @@ const Article = ({ text }: Props): ReactElement => {
 };
 
 Article.propTypes = {
-  text: string
-};
-
-Article.defaultProps = {
-  text: undefined
+  data: PGenericData.isRequired
 };
 
 export default Article;
