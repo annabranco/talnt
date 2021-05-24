@@ -3,8 +3,9 @@ import { getAllDataFromServer, searchData } from '../../../api';
 import Header from '../../sections/Header';
 import Main from '../../sections/Main';
 import Search from '../../sections/Search';
-import { SAppContainer, SMainArea, FakeElement } from './styles';
 import { IAppState, IGenericData } from '../../../types/interfaces';
+import { SAppContainer, SMainArea, FakeElement } from './styles';
+import { GlobalStyles } from '../../../styles/global';
 
 export const initialState = {
   companies: [],
@@ -38,7 +39,8 @@ const App = (): ReactElement => {
   }, []);
 
   return (
-    <SAppContainer color="gray">
+    <SAppContainer color="lightgray">
+      <GlobalStyles />
       <Header state={serverData} />
       <SMainArea color="darkgray">
         <Main searchResults={searchResults} searchString={searchString} />
