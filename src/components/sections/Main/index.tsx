@@ -34,7 +34,7 @@ const Main = ({ searchResults, searchString }: IMainProps): ReactElement => {
       ) : (
         <>
           {searchResults.map(item => (
-            <Article data={defaultArticle} key={JSON.stringify(item)} />
+            <Article data={item} key={JSON.stringify(item)} />
           ))}
         </>
       )}

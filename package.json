@@ -63,7 +63,7 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "test": "jest --silent --verbose --coverage",
-    "test:dev": "jest --verbose --watch",
+    "test:dev": "jest --silent --verbose --watch",
     "test:e2e": "npm run cypress:start:wait -- \"cypress run\"",
     "test:e2e:dev": "npm run cypress:start:wait -- \"cypress open\"",
     "predeploy": "npm run build",

@@ -52,7 +52,7 @@ describe('< App >', () => {
     axiosSpy.mockReturnValue(response);
 
     // TOFIX [23-May-21]: Dump this click event (Anna Branco)
-    wrapper.find('SMainArea').simulate('click');
+    wrapper.find('FakeElement').simulate('click');
     // // This forced click is being used because useEffect fetch is not being triggered on testing
 
     expect(axiosSpy).toHaveBeenCalledTimes(3);
@@ -67,7 +67,7 @@ describe('< App >', () => {
     const axiosSpy = jest.spyOn(axios, 'get');
     axiosSpy.mockReturnValue(response);
 
-    wrapper.find('SMainArea').simulate('click');
+    wrapper.find('FakeElement').simulate('click');
     expect(axiosSpy).toHaveBeenCalledTimes(3);
     expect(axiosSpy).not.toThrow();
     axiosSpy.mockRestore();
@@ -76,7 +76,6 @@ describe('< App >', () => {
   it('should pass onSearch  and updateSearchString methods and the current search string to Search component', () => {
     let searchProps = wrapper.find('Search').props() as ISearchProps;
     expect(searchProps.onSearch).not.toBe(undefined);
-    expect(searchProps.updateSearchString).not.toBe(undefined);
     expect(searchProps.searchString).toStrictEqual('');
   });
 

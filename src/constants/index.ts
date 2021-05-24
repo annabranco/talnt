@@ -7,3 +7,6 @@ export const THANKS =
 export const READ_MORE = 'Read more';
 export const NOT_FOUND_TITLE = 'Not found';
 export const NOT_FOUND_TEXT = "We're sorry but your search returned no results";
+export const SEARCH_HERE = 'Search here';
+export const MIN_CHARS = 'min 2 chars';
+export const SEARCH = 'Search on our database';

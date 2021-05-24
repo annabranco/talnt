@@ -1,29 +1,79 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState, useEffect, ChangeEvent, useRef } from 'react';
 import { func, string } from 'prop-types';
-import { SElement, SWrapperElement } from './styles';
+import {
+  SSearchInput,
+  SSearchLabel,
+  SSearchWrapper,
+  SSearchTitle
+} from './styles';
+import { MIN_CHARS, SEARCH, SEARCH_HERE } from '../../../constants';
 
 export interface ISearchProps {
   onSearch: (query: string) => void;
   searchString: string;
-  updateSearchString: (query: string) => void;
 }
 
-const Search = ({
-  onSearch,
-  searchString,
-  updateSearchString
-}: ISearchProps): ReactElement => {
+const Search = ({ onSearch, searchString }: ISearchProps): ReactElement => {
+  const [showLabel, toggleLabel] = useState('');
+  const waitForDebouceTimer = useRef(
+    null as null | ReturnType<typeof setTimeout>
+  );
+
+  const onFocusInput = () => {
+    if (searchString.length < 2) {
+      toggleLabel(MIN_CHARS);
+    } else {
+      toggleLabel(SEARCH_HERE);
+    }
+  };
+
+  const onBlurInput = () => {
+    if (!searchString) {
+      toggleLabel('');
+    }
+  };
+
+  const onChange = (event: ChangeEvent) => {
+    if (!waitForDebouceTimer.current) {
+      waitForDebouceTimer.current = setTimeout(() => {
+        waitForDebouceTimer.current = null;
+        onSearch((event.target as HTMLInputElement).value);
+      }, 500);
+    }
+  };
+
+  useEffect(() => {
+    if (searchString) {
+      if (searchString.length < 2) {
+        toggleLabel(MIN_CHARS);
+      } else {
+        toggleLabel(SEARCH_HERE);
+      }
+    } else {
+      toggleLabel('');
+    }
+  }, [searchString]);
+
   return (
-    <SWrapperElement color="lightblue">
-      <SElement> Search working! </SElement>
-    </SWrapperElement>
+    <SSearchWrapper color="lightblue">
+      <SSearchTitle>{SEARCH}</SSearchTitle>
+      {showLabel && <SSearchLabel htmlFor="search">{showLabel}</SSearchLabel>}
+      <SSearchInput
+        id="search"
+        name="search"
+        onBlur={onBlurInput}
+        onChange={onChange}
+        onFocus={onFocusInput}
+        placeholder={SEARCH_HERE}
+        type="text"
+      />
+    </SSearchWrapper>
   );
 };
 
 Search.propTypes = {
   onSearch: func.isRequired,
-  searchString: string.isRequired,
-  updateSearchString: func.isRequired
+  searchString: string.isRequired
 };
 
 export default Search;

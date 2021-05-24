@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-interface SWrapperElementProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+interface SWrapperElementProps extends React.ComponentPropsWithoutRef<'div'> {
   color: string;
 }
 
@@ -27,3 +26,6 @@ export const SMainArea = styled(SWrapperElement)`
   justify-content: center;
 `;
 SMainArea.displayName = 'SMainArea';
+
+export const FakeElement = styled.div``;
+FakeElement.displayName = 'FakeElement';

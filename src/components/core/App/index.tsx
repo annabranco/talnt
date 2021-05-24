@@ -3,7 +3,7 @@ import { getAllDataFromServer, searchData } from '../../../api';
 import Header from '../../sections/Header';
 import Main from '../../sections/Main';
 import Search from '../../sections/Search';
-import { SAppContainer, SMainArea } from './styles';
+import { SAppContainer, SMainArea, FakeElement } from './styles';
 import { IAppState, IGenericData } from '../../../types/interfaces';
 
 export const initialState = {
@@ -20,9 +20,12 @@ const App = (): ReactElement => {
   const [searchString, updateSearchString] = useState('');
 
   const onSearch = async (query: string) => {
-    const search = (await searchData(query)) as IGenericData[];
-    if (search) {
-      updateSearchResults(search);
+    updateSearchString(query);
+    if (query.length >= 2) {
+      const search = (await searchData(query)) as IGenericData[];
+      if (search) {
+        updateSearchResults(search);
+      }
     }
   };
 
@@ -35,14 +38,11 @@ const App = (): ReactElement => {
   return (
     <SAppContainer color="gray">
       <Header state={serverData} />
-      <SMainArea color="darkgray" onClick={getAllDataFromServer}>
+      <SMainArea color="darkgray">
         <Main searchResults={searchResults} searchString={searchString} />
-        <Search
-          onSearch={onSearch}
-          searchString={searchString}
-          updateSearchString={updateSearchString}
-        />
+        <Search searchString={searchString} onSearch={onSearch} />
       </SMainArea>
+      <FakeElement onClick={getAllDataFromServer} />
     </SAppContainer>
   );
 };

@@ -4,7 +4,7 @@ import Main, { articleNotFound, defaultArticle } from '.';
 import { MockedServerDataAlt } from '../../../tests/mocks';
 
 describe('< Main >', () => {
-    let wrapper: ReactWrapper;
+  let wrapper: ReactWrapper;
 
   beforeAll(() => {
     wrapper = mount(<Main searchResults={[]} searchString='' />);

@@ -3,8 +3,8 @@ import { IApiData, IApiResponse, IAppState } from '../types/interfaces';
 import {
   REGIONS_ENDPOINT,
   COMPANIES_ENDPOINT,
-  TAGS_ENDPOINT,
-  MOVES_ENDPOINT
+  MOVES_ENDPOINT,
+  SEARCH_PATH
 } from './endpoints';
 
 const dbPaths = [COMPANIES_ENDPOINT, MOVES_ENDPOINT, REGIONS_ENDPOINT];
@@ -37,4 +37,4 @@ export const getAllDataFromServer = (): Promise<IAppState> =>
     ) as Promise<IAppState>;
 
 export const searchData = (query: string): Promise<IApiData> =>
-  fetchData(`${TAGS_ENDPOINT}${query}`);
+  fetchData(`${SEARCH_PATH}${query}`);
