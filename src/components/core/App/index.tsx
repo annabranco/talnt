@@ -26,6 +26,8 @@ const App = (): ReactElement => {
       if (search) {
         updateSearchResults(search);
       }
+    } else {
+      updateSearchResults([]);
     }
   };
 

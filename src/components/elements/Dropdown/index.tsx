@@ -13,18 +13,33 @@ export interface IDropdownProps {
 const Dropdown = ({ data, type }: IDropdownProps): ReactElement => {
   return (
     <SWrapperElement color="yellow">
-      <SDropdown defaultValue={type} disabled={data.length === 0}>
-        <SOption disabled key={`defaultOption${type}`} value={type}>
+      <SDropdown
+        data-test-id={`dropdown_${type}`}
+        defaultValue={type}
+        disabled={data.length === 0}
+      >
+        <SOption
+          data-test-id={`first-option_${type}`}
+          disabled
+          key={`defaultOption${type}`}
+          value={type}
+        >
           {type}
         </SOption>
         {data.map((item: IGenericData | IRegions) => (
           <Fragment key={JSON.stringify(item)}>
             {type === REGIONS ? (
-              <SOption value={(item as IRegions).acronym}>
+              <SOption
+                data-test-id={`options_${type}`}
+                value={(item as IRegions).acronym}
+              >
                 {(item as IRegions).description}
               </SOption>
             ) : (
-              <SOption value={(item as IGenericData).reference}>
+              <SOption
+                data-test-id={`options_${type}`}
+                value={(item as IGenericData).reference}
+              >
                 {(item as IGenericData).name}
               </SOption>
             )}
@@ -36,8 +51,12 @@ const Dropdown = ({ data, type }: IDropdownProps): ReactElement => {
 };
 
 Dropdown.propTypes = {
-  data: PApiData.isRequired,
+  data: PApiData,
   type: oneOf([REGIONS, COMPANIES, MOVES]).isRequired
+};
+
+Dropdown.defaultProps = {
+  data: []
 };
 
 export default Dropdown;

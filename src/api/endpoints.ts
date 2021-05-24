@@ -1,4 +1,4 @@
-const API_SERVER = 'https://api.staging.talnt.sh';
+export const API_SERVER = 'https://api.staging.talnt.sh';
 
 export const REGIONS_ENDPOINT = `${API_SERVER}/v1/regions`;
 export const COMPANIES_ENDPOINT = `${API_SERVER}/v1/companies`;

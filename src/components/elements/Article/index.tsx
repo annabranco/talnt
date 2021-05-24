@@ -25,8 +25,12 @@ const Article = ({ data }: IArticleProps): ReactElement => {
 
   return (
     <SArticleWrapper color="pink">
-      <SArticleTitle>{data.reference}</SArticleTitle>
-      <SArticleText>{formatLargeText(data.name)}</SArticleText>
+      <SArticleTitle data-test-id="article-title">
+        {data.reference}
+      </SArticleTitle>
+      <SArticleText data-test-id="article-text">
+        {formatLargeText(data.name)}
+      </SArticleText>
       {data.name.length > 100 && isCuttingText && (
         <SReadMoreButton onClick={() => toggleIsCuttingText(false)}>
           {READ_MORE}
