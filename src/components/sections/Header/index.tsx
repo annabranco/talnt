@@ -13,7 +13,7 @@ const Header = ({
   state: { companies, moves, regions }
 }: IHeaderProps): ReactElement => {
   return (
-    <SWrapperElement color="green">
+    <SWrapperElement>
       <SLogo data-test-id="logo">TALNT</SLogo>
       <Dropdown data={regions} type={REGIONS} />
       <Dropdown data={companies} type={COMPANIES} />
