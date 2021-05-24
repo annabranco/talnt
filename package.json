@@ -2,10 +2,14 @@
   "name": "talnt-tech-assignment",
   "author": "Anna Branco <ann.branco@icloud.com> (https://github.com/annabranco)",
   "description": "Assignment for TALNT",
-  "repository": "github:annabranco/talnt/",
-  "homepage": "https://github.com/annabranco/talnt/",
+  "repository": "github:annabranco/talnt",
+  "homepage": "http://annabranco.github.io/talnt/",
   "version": "0.2.1",
   "private": true,
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/annabranco/talnt/issues"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "prop-types": "^15.7.2",
