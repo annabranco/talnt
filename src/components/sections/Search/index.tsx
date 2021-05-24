@@ -55,10 +55,14 @@ const Search = ({ onSearch, searchString }: ISearchProps): ReactElement => {
   }, [searchString]);
 
   return (
-    <SSearchWrapper color="lightblue" data-test-id="search-wrapper">
+    <SSearchWrapper data-test-id="search-wrapper">
       <SSearchTitle data-test-id="search-title">{SEARCH}</SSearchTitle>
       {showLabel && (
-        <SSearchLabel data-test-id="search-label" htmlFor="search">
+        <SSearchLabel
+          data-test-id="search-label"
+          htmlFor="search"
+          text={showLabel}
+        >
           {showLabel}
         </SSearchLabel>
       )}
