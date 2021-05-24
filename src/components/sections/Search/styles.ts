@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 
-interface StyledWrapperElementProps
+interface SWrapperElementProps
   extends React.ComponentPropsWithoutRef<'div'> {
   color: string;
 }
 
-export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
+export const SWrapperElement = styled.div<SWrapperElementProps>`
   background: ${({ color }) => color || 'none'};
   border: 1px solid black;
   font-size: 1 rem;
   color: red;
 `;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
+SWrapperElement.displayName = 'SWrapperElement';
 
-export const StyledElement = styled.p`
+export const SElement = styled.p`
   font-size: 1 rem;
   color: black;
 `;
-StyledElement.displayName = 'StyledElement';
+SElement.displayName = 'SElement';

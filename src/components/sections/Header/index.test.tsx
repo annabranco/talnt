@@ -17,7 +17,7 @@ describe('< Header >', () => {
   });
 
   it('should mount', () => {
-    expect(wrapper.find('StyledLogo').text()).toBe('TALNT');
+    expect(wrapper.find('SLogo').text()).toBe('TALNT');
   });
 
   it('should have three Dropdown components', () => {

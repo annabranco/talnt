@@ -1,21 +1,29 @@
 import { ReactElement } from 'react';
-import { func } from 'prop-types';
-import { StyledElement, StyledWrapperElement } from './styles';
+import { func, string } from 'prop-types';
+import { SElement, SWrapperElement } from './styles';
 
 export interface ISearchProps {
   onSearch: (query: string) => void;
+  searchString: string;
+  updateSearchString: (query: string) => void;
 }
 
-const Search = ({ onSearch }: ISearchProps): ReactElement => {
+const Search = ({
+  onSearch,
+  searchString,
+  updateSearchString
+}: ISearchProps): ReactElement => {
   return (
-    <StyledWrapperElement color="lightblue">
-      <StyledElement> Search working! </StyledElement>
-    </StyledWrapperElement>
+    <SWrapperElement color="lightblue">
+      <SElement> Search working! </SElement>
+    </SWrapperElement>
   );
 };
 
 Search.propTypes = {
-  onSearch: func.isRequired
+  onSearch: func.isRequired,
+  searchString: string.isRequired,
+  updateSearchString: func.isRequired
 };
 
 export default Search;

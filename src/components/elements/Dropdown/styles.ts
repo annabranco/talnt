@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
-interface StyledWrapperElementProps
+interface SWrapperElementProps
   extends React.ComponentPropsWithoutRef<'div'> {
   color: string;
 }
 
-export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
+export const SWrapperElement = styled.div<SWrapperElementProps>`
   background: ${({ color }) => color || 'none'};
   border: 1px solid black;
   font-size: 1 rem;
   color: red;
 `;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
+SWrapperElement.displayName = 'SWrapperElement';
 
-export const StyledDropdown = styled.select`
+export const SDropdown = styled.select`
   font-size: 1 rem;
   color: black;
 `;
-StyledDropdown.displayName = 'StyledDropdown';
+SDropdown.displayName = 'SDropdown';
 
-export const StyledOption = styled.option`
+export const SOption = styled.option`
   font-size: 1 rem;
   color: black;
 `;
-StyledOption.displayName = 'StyledOption';
+SOption.displayName = 'SOption';

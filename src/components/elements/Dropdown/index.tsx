@@ -2,7 +2,7 @@ import { Fragment, ReactElement } from 'react';
 import { oneOf } from 'prop-types';
 import { IApiData, IGenericData, IRegions } from '../../../types/interfaces';
 import { PApiData } from '../../../types/propTypes';
-import { StyledDropdown, StyledOption, StyledWrapperElement } from './styles';
+import { SDropdown, SOption, SWrapperElement } from './styles';
 import { REGIONS, COMPANIES, MOVES } from '../../../constants/index';
 
 export interface IDropdownProps {
@@ -12,26 +12,26 @@ export interface IDropdownProps {
 
 const Dropdown = ({ data, type }: IDropdownProps): ReactElement => {
   return (
-    <StyledWrapperElement color="yellow">
-      <StyledDropdown defaultValue={type} disabled={data.length === 0}>
-        <StyledOption disabled key={`defaultOption${type}`} value={type}>
+    <SWrapperElement color="yellow">
+      <SDropdown defaultValue={type} disabled={data.length === 0}>
+        <SOption disabled key={`defaultOption${type}`} value={type}>
           {type}
-        </StyledOption>
+        </SOption>
         {data.map((item: IGenericData | IRegions) => (
           <Fragment key={JSON.stringify(item)}>
             {type === REGIONS ? (
-              <StyledOption value={(item as IRegions).acronym}>
+              <SOption value={(item as IRegions).acronym}>
                 {(item as IRegions).description}
-              </StyledOption>
+              </SOption>
             ) : (
-              <StyledOption value={(item as IGenericData).reference}>
+              <SOption value={(item as IGenericData).reference}>
                 {(item as IGenericData).name}
-              </StyledOption>
+              </SOption>
             )}
           </Fragment>
         ))}
-      </StyledDropdown>
-    </StyledWrapperElement>
+      </SDropdown>
+    </SWrapperElement>
   );
 };
 

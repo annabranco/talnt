@@ -1,13 +1,19 @@
 import { ReactElement } from 'react';
-import { arrayOf } from 'prop-types';
+import { arrayOf, string } from 'prop-types';
 import Article from '../../elements/Article';
-import { StyledWrapperElement } from './styles';
+import { SWrapperElement } from './styles';
 import { IGenericData } from '../../../types/interfaces';
 import { PGenericData } from '../../../types/propTypes';
-import { THANKS, WELCOME } from '../../../constants';
+import {
+  NOT_FOUND_TEXT,
+  NOT_FOUND_TITLE,
+  THANKS,
+  WELCOME
+} from '../../../constants';
 
 export interface IMainProps {
   searchResults: IGenericData[];
+  searchString: string;
 }
 
 export const defaultArticle = {
@@ -15,11 +21,16 @@ export const defaultArticle = {
   name: THANKS
 };
 
-const Main = ({ searchResults }: IMainProps): ReactElement => {
+export const articleNotFound = {
+  reference: NOT_FOUND_TITLE,
+  name: NOT_FOUND_TEXT
+};
+
+const Main = ({ searchResults, searchString }: IMainProps): ReactElement => {
   return (
-    <StyledWrapperElement color="orange">
+    <SWrapperElement color="orange">
       {searchResults.length === 0 ? (
-        <Article data={defaultArticle} />
+        <Article data={searchString ? articleNotFound : defaultArticle} />
       ) : (
         <>
           {searchResults.map(item => (
@@ -27,12 +38,13 @@ const Main = ({ searchResults }: IMainProps): ReactElement => {
           ))}
         </>
       )}
-    </StyledWrapperElement>
+    </SWrapperElement>
   );
 };
 
 Main.propTypes = {
-  searchResults: arrayOf(PGenericData).isRequired
+  searchResults: arrayOf(PGenericData).isRequired,
+  searchString: string.isRequired
 };
 
 export default Main;

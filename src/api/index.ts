@@ -4,8 +4,7 @@ import {
   REGIONS_ENDPOINT,
   COMPANIES_ENDPOINT,
   TAGS_ENDPOINT,
-  MOVES_ENDPOINT,
-  TAXONOMIES_ENDPOINT
+  MOVES_ENDPOINT
 } from './endpoints';
 
 const dbPaths = [COMPANIES_ENDPOINT, MOVES_ENDPOINT, REGIONS_ENDPOINT];
@@ -27,7 +26,7 @@ export const getAllDataFromServer = (): Promise<IAppState> =>
   axios
     .all(dbPaths.map(path => fetchData(path)))
     .then(
-      axios.spread((companies, moves, regions, tags, taxonomies) => ({
+      axios.spread((companies, moves, regions) => ({
         companies,
         moves,
         regions

@@ -17,6 +17,7 @@ const App = (): ReactElement => {
   const [searchResults, updateSearchResults] = useState(
     [] as IGenericData[] | never[]
   );
+  const [searchString, updateSearchString] = useState('');
 
   const onSearch = async (query: string) => {
     const search = (await searchData(query)) as IGenericData[];
@@ -35,8 +36,12 @@ const App = (): ReactElement => {
     <SAppContainer color="gray">
       <Header state={serverData} />
       <SMainArea color="darkgray" onClick={getAllDataFromServer}>
-        <Main searchResults={searchResults} />
-        <Search onSearch={onSearch} />
+        <Main searchResults={searchResults} searchString={searchString} />
+        <Search
+          onSearch={onSearch}
+          searchString={searchString}
+          updateSearchString={updateSearchString}
+        />
       </SMainArea>
     </SAppContainer>
   );

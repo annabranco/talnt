@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
-interface StyledWrapperElementProps
+interface SWrapperElementProps
   extends React.ComponentPropsWithoutRef<'div'> {
   color: string;
 }
 
-export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
+export const SWrapperElement = styled.div<SWrapperElementProps>`
   background: ${({ color }) => color || 'none'};
   border: 1px solid black;
   font-size: 1 rem;
 `;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
+SWrapperElement.displayName = 'SWrapperElement';
 
-export const SAppContainer = styled(StyledWrapperElement)`
+export const SAppContainer = styled(SWrapperElement)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ export const SAppContainer = styled(StyledWrapperElement)`
 `;
 SAppContainer.displayName = 'SAppContainer';
 
-export const SMainArea = styled(StyledWrapperElement)`
+export const SMainArea = styled(SWrapperElement)`
   display: flex;
   flex-direction: row;
   align-items: center;

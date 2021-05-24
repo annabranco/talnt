@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-interface StyledWrapperElementProps
+interface SWrapperElementProps
   extends React.ComponentPropsWithoutRef<'div'> {
   color: string;
 }
 
-export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
+export const SWrapperElement = styled.div<SWrapperElementProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,10 +15,10 @@ export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
   font-size: 1 rem;
   color: red;
 `;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
+SWrapperElement.displayName = 'SWrapperElement';
 
-export const StyledLogo = styled.p`
+export const SLogo = styled.p`
   font-size: 4 rem;
   color: black;
 `;
-StyledLogo.displayName = 'StyledLogo';
+SLogo.displayName = 'SLogo';

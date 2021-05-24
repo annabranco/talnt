@@ -1,20 +1,32 @@
 import styled from 'styled-components';
 
-interface StyledWrapperElementProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+interface SArticleWrapperProps
+  extends React.ComponentPropsWithoutRef<'article'> {
   color: string;
 }
 
-export const StyledWrapperElement = styled.div<StyledWrapperElementProps>`
+export const SArticleWrapper = styled.article<SArticleWrapperProps>`
   background: ${({ color }) => color || 'none'};
   border: 1px solid black;
   font-size: 1 rem;
   color: red;
 `;
-StyledWrapperElement.displayName = 'StyledWrapperElement';
+SArticleWrapper.displayName = 'SArticleWrapper';
 
-export const StyledElement = styled.p`
+export const SArticleTitle = styled.h2`
   font-size: 1 rem;
   color: black;
 `;
-StyledElement.displayName = 'StyledElement';
+SArticleTitle.displayName = 'SArticleTitle';
+
+export const SArticleText = styled.p`
+  font-size: 1 rem;
+  color: black;
+`;
+SArticleText.displayName = 'SArticleText';
+
+export const SReadMoreButton = styled.button`
+  font-size: 1 rem;
+  color: black;
+`;
+SReadMoreButton.displayName = 'SReadMoreButton';

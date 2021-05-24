@@ -73,13 +73,16 @@ describe('< App >', () => {
     axiosSpy.mockRestore();
   });
 
-  it('should pass onSearch method to Search component', () => {
+  it('should pass onSearch  and updateSearchString methods and the current search string to Search component', () => {
     let searchProps = wrapper.find('Search').props() as ISearchProps;
     expect(searchProps.onSearch).not.toBe(undefined);
+    expect(searchProps.updateSearchString).not.toBe(undefined);
+    expect(searchProps.searchString).toStrictEqual('');
   });
 
-    it('should pass search results to Main component', () => {
+  it('should pass search results and search string to Main component', () => {
     let mainProps = wrapper.find('Main').props() as IMainProps;
-    expect(mainProps.searchResults).toStrictEqual([]);
+      expect(mainProps.searchResults).toStrictEqual([]);
+      expect(mainProps.searchString).toStrictEqual('');
   });
 });
