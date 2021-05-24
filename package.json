@@ -4,7 +4,7 @@
   "description": "Assignment for TALNT",
   "repository": "github:annabranco/talnt/",
   "homepage": "https://www.annab.dev/",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
