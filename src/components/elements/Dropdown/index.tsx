@@ -12,7 +12,7 @@ export interface IDropdownProps {
 
 const Dropdown = ({ data, type }: IDropdownProps): ReactElement => {
   return (
-    <SWrapperElement color="yellow">
+    <SWrapperElement>
       <SDropdown
         data-test-id={`dropdown_${type}`}
         defaultValue={type}
