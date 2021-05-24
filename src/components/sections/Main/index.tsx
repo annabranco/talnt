@@ -28,7 +28,7 @@ export const articleNotFound = {
 
 const Main = ({ searchResults, searchString }: IMainProps): ReactElement => {
   return (
-    <SWrapperElement color="orange">
+    <SWrapperElement>
       {searchResults.length === 0 ? (
         <Article data={searchString ? articleNotFound : defaultArticle} />
       ) : (
