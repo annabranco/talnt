@@ -24,7 +24,7 @@ const Article = ({ data }: IArticleProps): ReactElement => {
   }, [data]);
 
   return (
-    <SArticleWrapper color="pink">
+    <SArticleWrapper color="#ffe0c1">
       <SArticleTitle data-test-id="article-title">
         {data.reference}
       </SArticleTitle>
