@@ -19,6 +19,10 @@ export const SArticleWrapper = styled.article<SArticleWrapperProps>`
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+
+  &:hover {
+    background: yellow;
+  }
 `;
 SArticleWrapper.displayName = 'SArticleWrapper';
 
