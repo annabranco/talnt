@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/talnt/static/js/main.ecaf84cc.chunk.js",
-    "main.js.map": "/talnt/static/js/main.ecaf84cc.chunk.js.map",
+    "main.js": "/talnt/static/js/main.faea6513.chunk.js",
+    "main.js.map": "/talnt/static/js/main.faea6513.chunk.js.map",
     "runtime-main.js": "/talnt/static/js/runtime-main.fcff71be.js",
     "runtime-main.js.map": "/talnt/static/js/runtime-main.fcff71be.js.map",
     "static/js/2.a981a8f6.chunk.js": "/talnt/static/js/2.a981a8f6.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.fcff71be.js",
     "static/js/2.a981a8f6.chunk.js",
-    "static/js/main.ecaf84cc.chunk.js"
+    "static/js/main.faea6513.chunk.js"
   ]
 }
