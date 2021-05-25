@@ -16,6 +16,7 @@ export const SSearchWrapper = styled.aside<SSearchWrapperProps>`
 SSearchWrapper.displayName = 'SSearchWrapper';
 
 export const SSearchInput = styled.input`
+  width: 100%;
   font-size: 1 rem;
   color: gray;
   text-decoration: double;
